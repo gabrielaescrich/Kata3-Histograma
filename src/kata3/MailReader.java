@@ -21,15 +21,13 @@ public class MailReader {
         try {
             reader = new BufferedReader(new FileReader(filePath));
             ArrayList<String> domainList = new ArrayList<>();
+            reader.close();
             return null;
-        } catch (FileNotFoundException ex) {
-            return new String[0];
-        } finally {
-            try {
+        }catch (IOException ex) {
+            try{
                 reader.close();
-            } catch (IOException ex) {
-                Logger.getLogger(MailReader.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+            }catch (IOException ex1){}
+            return new String[0];
+        } 
     }
 }
