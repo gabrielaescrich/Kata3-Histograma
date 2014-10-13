@@ -16,7 +16,7 @@ public class MailReader {
         this.filePath = filePath;
     }
     
-    public String[] realDomains(){
+    public String[] readDomains(){
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(filePath));
@@ -35,5 +35,9 @@ public class MailReader {
             }catch (IOException ex1){}
             return new String[0];
         } 
+    }
+
+    String[] readDomain() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
