@@ -21,8 +21,14 @@ public class MailReader {
         try {
             reader = new BufferedReader(new FileReader(filePath));
             ArrayList<String> domainList = new ArrayList<>();
+            while(true){
+                String line = reader.readLine();
+                if(line == null) break;
+                if (line.contains("@"))
+                    domainList.add(line.split("@")[1]);
+            }
             reader.close();
-            return null;
+            return domainList.toArray(new String [domainList.size()]);
         }catch (IOException ex) {
             try{
                 reader.close();
